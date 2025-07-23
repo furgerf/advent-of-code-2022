@@ -13,7 +13,7 @@ endif
 		if [ -d "day_$$D" ]; then echo "Day $$D exists already!"; false; fi && \
 		mkdir -p "day_$$D" && \
 		cp day_template.py "day_$$D/day_$$D.py" && \
-		sed -i "s/XXX/$$D/g" "day_$$D/day_$$D.py" && \
+		sed -i "s/XXX/$(DAY)/g" "day_$$D/day_$$D.py" && \
 		http "https://adventofcode.com/$(YEAR)/day/$(DAY)/input" Cookie:session=$$COOKIE > "day_$$D"/input && \
 		git add "day_$$D" && \
 		echo "Prepared day $$D" && \
